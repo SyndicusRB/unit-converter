@@ -13,9 +13,18 @@ const conversionOne = document.getElementById("conversion-one")
 const conversionTwo = document.getElementById("conversion-two")
 const conversionThree = document.getElementById("conversion-three")
 
-headerEl.innerHTML += `<h1 id="header-text">Metric/Imperial Unit Conversion</h1>`
-headerEl.innerHTML += `<input type="text" id="input-text"></input>`
-headerEl.innerHTML += `<button id="convert-btn">Convert</button>`
+const convertToFeet = 3.281
+const convertToMeter = 0.304
+const convertToGallon = 0.264
+const convertToLiter = 3.785
+const convertToPound = 2.204
+const convertToKilogram = 0.453
 
-conversionOne.innerHTML += `<h3>Length (Meter/Feet)</h3>
-                            <p>20 meters = 65.616 feet | 20 feet = 6.096 meters</p>`
+
+convertBtn.addEventListener("click", function() {
+    conversionOne.innerHTML = `${inputEl.value} meters = ${(inputEl.value * convertToFeet).toFixed(3)} feet | ${inputEl.value} feet = ${(inputEl.value * convertToMeter).toFixed(3)} meters`
+
+    conversionTwo.innerHTML = `${inputEl.value} liters = ${(inputEl.value * convertToGallon).toFixed(3)} gallons | ${inputEl.value} gallons = ${(inputEl.value * convertToLiter).toFixed(3)} liters`
+
+    conversionThree.innerHTML = `${inputEl.value} kilos = ${(inputEl.value * convertToPound).toFixed(3)} pounds | ${inputEl.value} pounds = ${(inputEl.value * convertToKilogram).toFixed(3)} kilos`
+})
